@@ -21,6 +21,7 @@ class Login_Model{
         $dato['nombre']="Miguel";
         $dato['edad']=53;
         $dato['status']="usted esta LOGUEADO";
+        $dato['code']=200;
 
         if($l=='mp' and $c==1234){
             return $dato;       

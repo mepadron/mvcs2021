@@ -2,10 +2,20 @@
 include_once 'Controllers/Login_Controller.php';
 
 if($_POST['botoLoginForm']){
+	include_once 'Helpers/formulario_helper.php';
 
-    // print_r($_POST);
+	$help = new Helpers();
+	$logForm = $help->strlClean($_POST['loginForm']);
+	$clavForm = $help->strlClean($_POST['passwordForm']);
+
+    print_r($logForm);
     $obj = new Login_Controller();
-    $datoUser = $obj->validarUsuario($_POST['loginForm'],$_POST['passwordForm']);
+    $datoUser = $obj->validarUsuario($logForm,$clavForm);
+	if($datoUser['code']==200){
+		include_once 'p.php';
+		exit;
+
+	}
     // // echo "<br>";
     // // print($datoUser);
     // // print_r($datoUser);
