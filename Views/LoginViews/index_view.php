@@ -11,11 +11,7 @@ if($_POST['botoLoginForm']){
     print_r($logForm);
     $obj = new Login_Controller();
     $datoUser = $obj->validarUsuario($logForm,$clavForm);
-	if($datoUser['code']==200){
-		include_once 'p.php';
-		exit;
-
-	}
+	
     // // echo "<br>";
     // // print($datoUser);
     // // print_r($datoUser);
