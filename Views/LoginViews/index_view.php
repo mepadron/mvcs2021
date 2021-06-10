@@ -8,19 +8,18 @@ if($_POST['botoLoginForm']){
 	$logForm = $help->strlClean($_POST['loginForm']);
 	$clavForm = $help->strlClean($_POST['passwordForm']);
 
-    print_r($logForm);
+    // print_r($logForm);
     $obj = new Login_Controller();
     $datoUser = $obj->validarUsuario($logForm,$clavForm);
+	if($datoUser['codigo']){
+		include_once 'usuario_validado.php';
+		exit();
+	}
 	
     // // echo "<br>";
     // // print($datoUser);
     // // print_r($datoUser);
-    echo "<br>";
-    print($datoUser['nombre']);
-    echo " ";
-    print($datoUser['edad']);
-    echo " ";
-    print($datoUser['status']);
+    
 }else{
 
 
